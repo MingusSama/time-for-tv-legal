@@ -30,7 +30,7 @@
 
 <h2>2. The app is social by design — content is public</h2>
 <div class="callout">
-  <p>Time for TV's social features work like Letterboxd: your <strong>public profile, username, avatar, comments, ratings, watch history, and public lists are visible to any other user of the app by default</strong>, not just people you follow. This is a deliberate design choice, not a bug or a leak. If you don't want a piece of information to be public, don't post it, or use the app's blocking/reporting tools (Section 6) to manage who can see or interact with your content.</p>
+  <p>Time for TV's social features are built around public activity: your <strong>public profile, username, avatar, comments, ratings, watch history, and public lists are visible to any other user of the app by default</strong>, not just people you follow. This is a deliberate design choice, not a bug or a leak. If you don't want a piece of information to be public, don't post it, or use the app's blocking/reporting tools (Section 6) to manage who can see or interact with your content.</p>
   <p>Your account password and email address are never made public.</p>
 </div>
 
@@ -38,7 +38,7 @@
 
 <h3>Account &amp; authentication</h3>
 <ul>
-  <li><strong>Email address and password</strong> — if you sign up with email/password. Your password is hashed and never visible to us in plain text; authentication is handled by our backend provider, Supabase.</li>
+  <li><strong>Email address and password</strong> — if you sign up with email/password. Your password is hashed and never visible to us in plain text; authentication is handled by our backend infrastructure provider (Section 4).</li>
   <li><strong>Google account basics (name, email, profile photo)</strong> — only if you choose "Continue with Google". Google acts as your identity provider; we receive the basic profile fields Google shares to create your account.</li>
 </ul>
 
@@ -60,7 +60,7 @@
 <h3>Optional third-party integrations</h3>
 <ul>
   <li><strong>Trakt.tv</strong> — if you choose to connect your Trakt account, we exchange an authorization code with Trakt to sync your watch history and ratings both ways. Trakt is an independent data controller for its own service; see <a href="https://trakt.tv/privacy" target="_blank" rel="noopener">Trakt's privacy policy</a>.</li>
-  <li><strong>TV Time import</strong> — if you upload a personal data export you received from the (now-discontinued) TV Time app, that file is processed to rebuild your library in Time for TV. The file itself is not sent to us — it's read on your device and matched against public show/movie databases (Section 4) to find the right titles.</li>
+  <li><strong>Import from another tracking service</strong> — if you upload a personal data export from a previous TV-tracking service you used, that file is processed to rebuild your library in Time for TV. The file itself is not sent to us — it's read on your device and matched against public show/movie databases (Section 4) to find the right titles.</li>
 </ul>
 
 <h3>Technical &amp; device data</h3>
@@ -78,24 +78,24 @@
 
 <div class="card-list">
   <div class="card">
-    <h4>Supabase</h4>
-    <p>Our backend: authentication, database, file storage (avatars), and server-side functions. Your account and content data is stored on Supabase's infrastructure, hosted in London, UK. Acts as our data processor.</p>
+    <h4>Cloud hosting &amp; database</h4>
+    <p>Our backend infrastructure provider handles authentication, database storage, file storage (avatars), and server-side functions on our behalf. Your account and content data is hosted in London, UK. This provider acts as our data processor and does not use your data for its own purposes.</p>
   </div>
   <div class="card">
     <h4>The Movie Database (TMDB)</h4>
     <p>Supplies show, movie, and episode metadata, artwork, and cast information. Requests to TMDB are proxied through our own server so no account or identity information is sent to TMDB — only the title/id being looked up.</p>
   </div>
   <div class="card">
-    <h4>Klipy</h4>
-    <p>Powers GIF search in the comment composer. Your search text is sent to Klipy to fetch results; no account or identity data is shared with Klipy.</p>
+    <h4>GIF search</h4>
+    <p>A third-party GIF search provider powers GIF search in the comment composer. Your search text is sent to it to fetch results; no account or identity data is shared with it.</p>
   </div>
   <div class="card">
     <h4>Google</h4>
     <p>Acts as an OAuth identity provider only if you choose "Continue with Google". See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a>.</p>
   </div>
   <div class="card">
-    <h4>Expo</h4>
-    <p>Relays push notifications to Apple and Google's own push services using your device's push token, if notifications are enabled.</p>
+    <h4>Push notifications</h4>
+    <p>A push-notification delivery provider relays notifications to Apple and Google's own push services using your device's push token, if notifications are enabled.</p>
   </div>
   <div class="card">
     <h4>Trakt.tv</h4>
@@ -103,10 +103,10 @@
   </div>
 </div>
 
-<p>We do not sell your personal data, and we do not share it with advertisers — the app carries no advertising or ad-tracking SDKs.</p>
+<p>We do not sell your personal data, and we do not share it with advertisers — the app carries no advertising or ad-tracking SDKs. A full list of the specific processors we use is available on request at <a href="mailto:mingus755@gmail.com">mingus755@gmail.com</a>.</p>
 
 <h2>5. International data transfers</h2>
-<p>Your account and content data is stored in the United Kingdom (AWS London region), via Supabase. Transfers of personal data from the EU to the UK are covered by the European Commission's UK adequacy decision, meaning the UK is recognised as providing an equivalent level of protection to the GDPR — no additional safeguards are required for this transfer.</p>
+<p>Your account and content data is hosted in the United Kingdom. Transfers of personal data from the EU to the UK are covered by the European Commission's UK adequacy decision, meaning the UK is recognised as providing an equivalent level of protection to the GDPR — no additional safeguards are required for this transfer.</p>
 
 <h2>6. Content moderation</h2>
 <p>To keep the community usable, the app includes reporting and blocking tools:</p>
