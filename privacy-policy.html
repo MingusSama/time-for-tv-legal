@@ -67,10 +67,11 @@
 <ul>
   <li>A push-notification token, if you enable notifications, used only to deliver reminders you've asked for (e.g. new episodes airing).</li>
   <li>Basic request metadata our infrastructure provider generates in the normal course of operating the service (e.g. IP address at the time of a request), for security and abuse prevention. We do not otherwise log or profile your device.</li>
+  <li><strong>Crash and error reports</strong> — if the app crashes or hits an unexpected error, a report is sent automatically containing a stack trace, device/OS information, and app version, so we can fix it. It is not linked to your account identity and is not used for advertising or behavioural tracking. See Section 4.</li>
 </ul>
 
 <div class="callout">
-  <p>We do <strong>not</strong> currently use any third-party analytics or crash-reporting SDK. If that changes in the future, this policy will be updated first.</p>
+  <p>We do <strong>not</strong> use any analytics, advertising, or behavioural-tracking SDK. The only third-party tool that receives technical data automatically is the crash-reporting service in Section 4, used solely to keep the app working.</p>
 </div>
 
 <h2>4. Who we share data with</h2>
@@ -96,6 +97,10 @@
   <div class="card">
     <h4>Push notifications</h4>
     <p>A push-notification delivery provider relays notifications to Apple and Google's own push services using your device's push token, if notifications are enabled.</p>
+  </div>
+  <div class="card">
+    <h4>Sentry (crash &amp; error reporting)</h4>
+    <p>Automatically receives a report when the app crashes or hits an unexpected error — a stack trace, device/OS details, and app version, not linked to your account identity. Used only to find and fix bugs. See <a href="https://sentry.io/privacy/" target="_blank" rel="noopener">Sentry's privacy policy</a>.</p>
   </div>
   <div class="card">
     <h4>Trakt.tv</h4>
